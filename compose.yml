@@ -1,0 +1,21 @@
+services:
+  web:
+    image: node:26-alpine
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
+    volumes:
+      - ./my-app:/my-app
+    working_dir: /my-app
+    environment:
+      DATABE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}
+  db:
+    image: mysql:9.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      TZ: Asia/Tokyo
+    volumes:
+      - ./db:/var/lib/mysql
