@@ -19,3 +19,4 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - ./db:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
