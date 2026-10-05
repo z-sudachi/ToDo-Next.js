@@ -8,7 +8,7 @@ services:
       - ./my-app:/my-app
     working_dir: /my-app
     environment:
-      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}]
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}
   db:
     image: mysql:9.7
     environment:

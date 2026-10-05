@@ -1,8 +1,8 @@
-import { defineConfig, env } from "prisma/config";
+import { definePrismaConfig } from "prisma/config";
 
-export default defineConfig({
+export default definePrismaConfig({
   schema: "prisma/schema.prisma",
   datasource: {
-    url: env("DATABASE_URL"), // mysql://user:pass@host:3306/db
+    url: process.env.DATABASE_URL,
   },
 });
