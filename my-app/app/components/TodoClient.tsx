@@ -134,10 +134,11 @@ export default function TodoClient({ todos }: { todos: Todo[] }) {
                     [{todo.isCompleted ? 'true' : 'false'}]
                   </button>
                 </td>
-                <td style={{ borderRight: '1px dashed #000', padding: '0.5rem 1rem' }}>
+                {/* Hydration Warningを防止する属性を追加 */}
+                <td suppressHydrationWarning style={{ borderRight: '1px dashed #000', padding: '0.5rem 1rem' }}>
                   {new Date(todo.createdAt).toLocaleString('ja-JP')}
                 </td>
-                <td style={{ borderRight: '1px dashed #000', padding: '0.5rem 1rem' }}>
+                <td suppressHydrationWarning style={{ borderRight: '1px dashed #000', padding: '0.5rem 1rem' }}>
                   {todo.updatedAt ? new Date(todo.updatedAt).toLocaleString('ja-JP') : '-'}
                 </td>
                 {/* [delete] ボタン */}
