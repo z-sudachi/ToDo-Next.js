@@ -3,7 +3,7 @@ services:
     image: node:26-alpine
     ports:
       - "3000:3000"
-    command: "npm run dev"
+    command: "npm run dev" #バージョンが違うといわれた場合はここ書き換えて直接npm installする
     volumes:
       - ./my-app:/my-app
     working_dir: /my-app
