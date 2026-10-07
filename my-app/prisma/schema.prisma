@@ -11,6 +11,6 @@ model Todo {
   text        String
   isCompleted Boolean  @default(false) @map("is_completed")
   createdAt   DateTime @default(now()) @map("created_at")
-
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
   @@map("todos")
 }
