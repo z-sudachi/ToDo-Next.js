@@ -3,7 +3,7 @@ services:
     image: node:26-alpine
     ports:
       - "3000:3000"
-    command: "npm run dev" #バージョンが違うといわれた場合はここ書き換えて直接npm installする
+    command: "npm run dev" # バージョンが違うといわれた場合はここ書き換えて直接 npm install する
     volumes:
       - ./my-app:/my-app
     working_dir: /my-app
@@ -11,6 +11,8 @@ services:
       DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}
   db:
     image: mysql:9.7
+    ports:
+      - "3306:3306" # ターミナル（PC側）から接続できるようにポートを開放
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_USER: ${MYSQL_USER}
